@@ -14,6 +14,8 @@ class Shader
 public:
     // the program ID
     unsigned int ID;
+
+    bool open_;
   
     // le constructeur lit et construit le shader
     Shader();
@@ -21,7 +23,7 @@ public:
 
     void load(const GLchar* vertexPath, const GLchar* fragmentPath, const char* geometryPath = nullptr);
     // Activation du shader
-    void use();
+    void use() const;
 
     // fonctions utiles pour l'uniform
     void setBool(const std::string &name, bool value) const;  

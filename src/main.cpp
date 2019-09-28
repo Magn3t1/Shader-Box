@@ -4,13 +4,23 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <filesystem>
+
 #include <iostream>
 
+//Functions Headers
 #include "event.hpp"
+
+//Classes Headers
+#include "GlobalVariable.hpp"
+#include "ShadersStorage.hpp"
+
 
 //Test
 #include "Quad.hpp"
-#include "Shader.hpp"
+//#include "Shader.hpp"
+
+
 
 void processInput(GLFWwindow *window);
 
@@ -36,6 +46,7 @@ int main(){
 	}
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetKeyCallback(window, key_callback);
 
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
@@ -45,7 +56,13 @@ int main(){
 	}
 
 	Quad monCarre;
-	Shader monShader("Shaders/classicQuad.vs", "Shaders/mandel.fs");
+	//Shader monShader("Shaders/default.vs", "Shaders/mandel.fs");
+	ShadersStorage monStorage;
+
+	GlobalVariable::mainShadersStoragePointer_ = &monStorage;
+
+	monStorage.addShader("Shaders/exemple/default.vs", "Shaders/exemple/mandel.fs");
+	monStorage.addShader("Shaders/exemple2/default.vs", "Shaders/exemple2/mandel.fs");
 
 
 	float time;
@@ -63,15 +80,17 @@ int main(){
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		monShader.use();
+		Shader const& actualShader(monStorage.getActualShader());
 
-		monShader.setFloat("time", time);
+		actualShader.use();
+
+		actualShader.setFloat("time", time);
 
 		///Pour tester, ces uniforme sont à remplacé pour des uniformes plus générique
-		monShader.setFloat("X", 0);
-		monShader.setFloat("Y", 0);
-		monShader.setFloat("Zoom", 1);
-		monShader.setVec2("screenSize", glm::vec2(800, 600));
+		actualShader.setFloat("X", 0);
+		actualShader.setFloat("Y", 0);
+		actualShader.setFloat("Zoom", 1);
+		actualShader.setVec2("screenSize", glm::vec2(800, 600));
 
 		monCarre.draw();
 

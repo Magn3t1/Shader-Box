@@ -8,6 +8,9 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath, const char* geo
 }
 
 void Shader::load(const char* vertexPath, const char* fragmentPath, const char* geometryPath){
+
+	open_ = true;
+
 	// 1. retrieve the vertex/fragment source code from filePath
 	std::string vertexCode;
 	std::string fragmentCode;
@@ -46,6 +49,7 @@ void Shader::load(const char* vertexPath, const char* fragmentPath, const char* 
 	}
 	catch (std::ifstream::failure e)
 	{
+		open_ = false;
 		std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
 	}
 	const char* vShaderCode = vertexCode.c_str();
@@ -88,7 +92,7 @@ void Shader::load(const char* vertexPath, const char* fragmentPath, const char* 
 }
 
 
-void Shader::use(){ 
+void Shader::use() const{ 
     glUseProgram(ID);
 }
 
@@ -148,6 +152,7 @@ void Shader::checkCompileErrors(GLuint shader, std::string const type){
         glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
         if (!success)
         {
+        	open_ = false;
             glGetShaderInfoLog(shader, 1024, NULL, infoLog);
             std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
         }
@@ -157,6 +162,7 @@ void Shader::checkCompileErrors(GLuint shader, std::string const type){
         glGetProgramiv(shader, GL_LINK_STATUS, &success);
         if (!success)
         {
+        	open_ = false;
             glGetProgramInfoLog(shader, 1024, NULL, infoLog);
             std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
         }

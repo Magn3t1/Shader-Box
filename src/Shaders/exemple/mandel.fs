@@ -21,6 +21,7 @@ uniform float X;
 uniform float Y;
 uniform float Zoom;
 uniform vec2 screenSize;
+uniform float xRatio;
 
 float iteration = 200;
 float scale 	= 400;
@@ -39,10 +40,12 @@ void main(){
 	int i;
 
 	//We get the FragCoord and we divide it bit the viewport size to normalize the coord then we center them by removing 0.5
-	vec2 c = (gl_FragCoord.xy/screenSize) - 0.5;
+	vec2 c = UV - 0.5;
 
 	//Go Back to screenCoord Space
-	c *= screenSize;
+	c.x *= xRatio;
+
+	c *= 1000;
 
 	//Add The Zoom 
 	c /= (Zoom + 1000)/10.0;

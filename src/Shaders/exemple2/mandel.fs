@@ -10,7 +10,7 @@
 /*Define Julia for Julia fractal*/
 #define Julia
 /*Define Move for a moving fractal, better to use with Julia's one which is symmetrical*/
-//#define Move
+#define Move
 
 out vec4 FragColor;
 

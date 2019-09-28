@@ -4,6 +4,8 @@
 #include "GlobalVariable.hpp"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height){
+	GlobalVariable::windowWidth_ = width;
+	GlobalVariable::windowHeight_ = height;
     glViewport(0, 0, width, height);
 }
 

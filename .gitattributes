@@ -18,4 +18,4 @@
 .gitattributes  export-ignore
 .gitignore      export-ignore
 
-src/glad.c linguist-vendored
+src/glad.c linguist-vendored=false

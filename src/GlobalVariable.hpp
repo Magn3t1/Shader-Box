@@ -6,6 +6,10 @@ class GlobalVariable{
 
 public:
 
+	static float zoom_;
+	static float X_;
+	static float Y_;
+
 	static unsigned int windowWidth_;
 	static unsigned int windowHeight_;
 

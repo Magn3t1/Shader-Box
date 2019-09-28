@@ -20,8 +20,8 @@
 #include "Quad.hpp"
 //#include "Shader.hpp"
 
-#define INITIAL_WIDTH 800
-#define INITIAL_HEIGHT 600
+#define INITIAL_WIDTH 1200
+#define INITIAL_HEIGHT 700
 
 
 
@@ -40,7 +40,7 @@ int main(){
   
 	
 
-    GLFWwindow* window = glfwCreateWindow(INITIAL_WIDTH, INITIAL_HEIGHT, "Shadow-Box", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(INITIAL_WIDTH, INITIAL_HEIGHT, "Shaders-Box", NULL, NULL);
 	if (window == NULL)
 	{
 	    std::cout << "Failed to create GLFW window" << std::endl;
@@ -83,6 +83,7 @@ int main(){
 	GlobalVariable::mainShadersStoragePointer_ = &monStorage;
 
 	monStorage.addShader("Shaders/myTest/default.vs", "Shaders/myTest/test.fs");
+	monStorage.addShader("Shaders/Truchet/default.vs", "Shaders/Truchet/test.fs");
 	monStorage.addShader("Shaders/exemple/default.vs", "Shaders/exemple/mandel.fs");
 	monStorage.addShader("Shaders/exemple2/default.vs", "Shaders/exemple2/mandel.fs");
 
@@ -109,9 +110,9 @@ int main(){
 		actualShader.setFloat("time", time);
 
 		///Pour tester, ces uniforme sont à remplacé pour des uniformes plus générique
-		actualShader.setFloat("X", 0);
-		actualShader.setFloat("Y", 0);
-		actualShader.setFloat("Zoom", 1);
+		actualShader.setFloat("X", GlobalVariable::X_);
+		actualShader.setFloat("Y", GlobalVariable::Y_);
+		actualShader.setFloat("Zoom", GlobalVariable::zoom_);
 		actualShader.setVec2("screenSize", glm::vec2(GlobalVariable::windowWidth_, GlobalVariable::windowHeight_));
 		actualShader.setFloat("xRatio", (float)GlobalVariable::windowWidth_/(float)GlobalVariable::windowHeight_);
 
@@ -131,4 +132,24 @@ void processInput(GLFWwindow *window){
 	
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
+
+    if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        GlobalVariable::Y_ += 0.1 * GlobalVariable::zoom_;
+
+    if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        GlobalVariable::Y_ -= 0.1 * GlobalVariable::zoom_;
+
+  	if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        GlobalVariable::X_ += 0.1 * GlobalVariable::zoom_;
+
+    if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        GlobalVariable::X_ -= 0.1 * GlobalVariable::zoom_;
+
+    if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+        GlobalVariable::zoom_ /= 1.05;
+
+    if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+        GlobalVariable::zoom_ *= 1.05;
+
+
 }

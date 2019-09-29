@@ -77,12 +77,6 @@ float circle(vec2 coord, float depth, int index, float t){
 	float sparkle = (0.005 / (dist_Coord_i * dist_Coord_i));
 	sparkle *= smoothstep(1.0, 0.7, dist_Coord_i);
 
-	// float pulse = sin((fract(neighbour[i].x) + fract(neighbour[i].y) + t) * 5.0) * 0.4 + 0.6;
-	// pulse = pow(pulse, 20.0);
-
-	// tempoSparkle *= pulse;
-	//sparkle += tempoSparkle;
-
 	float sPhase = (sin(t + index) + sin(t * 0.1)) * 0.25 + 0.5;
     sPhase += pow(sin(t * 0.1) * 0.5 + 0.5, 50.0) * 5.0;
     m += sparkle*sPhase;//(*.5+.5);

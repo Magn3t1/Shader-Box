@@ -6,6 +6,8 @@ class GlobalVariable{
 
 public:
 
+	static unsigned int mode_;
+
 	static float zoom_;
 	static float X_;
 	static float Y_;

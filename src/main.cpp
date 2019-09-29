@@ -82,6 +82,7 @@ int main(){
 
 	GlobalVariable::mainShadersStoragePointer_ = &monStorage;
 
+	monStorage.addShader("Shaders/Noise/default.vs", "Shaders/Noise/test.fs");
 	monStorage.addShader("Shaders/newGui/default.vs", "Shaders/newGui/test.fs");
 	monStorage.addShader("Shaders/Brain/default.vs", "Shaders/Brain/test.fs");
 	monStorage.addShader("Shaders/Truchet/default.vs", "Shaders/Truchet/test.fs");
@@ -111,6 +112,7 @@ int main(){
 		actualShader.setFloat("time", time);
 
 		///Pour tester, ces uniforme sont à remplacé pour des uniformes plus générique
+		actualShader.setInt("mode", GlobalVariable::mode_);
 		actualShader.setFloat("X", GlobalVariable::X_);
 		actualShader.setFloat("Y", GlobalVariable::Y_);
 		actualShader.setFloat("Zoom", GlobalVariable::zoom_);

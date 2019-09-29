@@ -82,7 +82,8 @@ int main(){
 
 	GlobalVariable::mainShadersStoragePointer_ = &monStorage;
 
-	monStorage.addShader("Shaders/myTest/default.vs", "Shaders/myTest/test.fs");
+	monStorage.addShader("Shaders/newGui/default.vs", "Shaders/newGui/test.fs");
+	monStorage.addShader("Shaders/Brain/default.vs", "Shaders/Brain/test.fs");
 	monStorage.addShader("Shaders/Truchet/default.vs", "Shaders/Truchet/test.fs");
 	monStorage.addShader("Shaders/exemple/default.vs", "Shaders/exemple/mandel.fs");
 	monStorage.addShader("Shaders/exemple2/default.vs", "Shaders/exemple2/mandel.fs");

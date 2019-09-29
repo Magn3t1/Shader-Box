@@ -39,7 +39,7 @@ void ShadersStorage::moveBackward(){
 
 	--actualIndex_;
 	if(actualIndex_ < 0){
-		actualIndex_ = 0;
+		actualIndex_ = openedShaders_.size() - 1;
 	}
 
 }

@@ -45,10 +45,14 @@ void main(){
 	//Go Back to screenCoord Space
 	c.x *= xRatio;
 
-	c *= 1000;
+	c *= 5;
 
 	//Add The Zoom 
-	c /= (Zoom + 1000)/10.0;
+	//c /= (1000)/10.0;
+
+
+
+	c *= Zoom;
 
 	//Add the X and Y Offset
 	c += vec2(X, Y);

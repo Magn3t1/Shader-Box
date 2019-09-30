@@ -2,8 +2,6 @@
 
 #define M_PI 3.1415926535897932384626433832795
 
-#define MODE 0
-
 #define NB_LAYERS 10.0
 
 out vec4 FragColor;
@@ -15,6 +13,7 @@ uniform float time;
 uniform vec2 screenSize;
 uniform float xRatio;
 
+uniform int mode;
 uniform float Zoom;
 uniform float X;
 uniform float Y;
@@ -48,15 +47,15 @@ float circle(vec2 coord, float depth, int index, float t){
 
 	vec2 originealCoord = coord;
 
-	if(MODE == 0){
+	if(mode == 0){
 		coord.x += (cos(t * Hash21(vec2(index*326, index*219)))*0.8 +0.2) * 50;
 		coord.y += (sin(t * Hash21(vec2(index, index)))*0.8 + 0.2) * 50;
 	}
-	else if(MODE == 1){
+	else if(mode == 1){
 		coord.x += (cos(t * Hash21(vec2(index*326, index*219)))*0.8 +0.2) * 30;
 		coord.y += (cos(t * Hash21(vec2(index, index)))*0.8 + 0.2) * 30;
 	}
-	else if(MODE == 2){
+	else if(mode == 2){
 		coord.x += (tan(t * Hash21(vec2(index*326, index*219)))*0.8 +0.2) * 30;
 		coord.y += (tan(t * Hash21(vec2(index, index)))*0.8 + 0.2) * 30;
 	}

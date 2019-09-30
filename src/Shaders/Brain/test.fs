@@ -3,9 +3,6 @@
 #define M_PI 3.1415926535897932384626433832795
 
 
-
-#define NB_LAYERS 3.0
-
 out vec4 FragColor;
 
 in vec2 UV;
@@ -15,6 +12,7 @@ uniform float time;
 uniform vec2 screenSize;
 uniform float xRatio;
 
+uniform int mode;
 uniform float Zoom;
 uniform float X;
 uniform float Y;
@@ -170,7 +168,7 @@ void main(){
 	coord *= roation;
 	offset *= roation;
 
-	for(float i = 0.0; i < 1; i += 1.0/NB_LAYERS){
+	for(float i = 0.0; i < 1; i += 1.0/(mode+1)){
 
 		float depth = fract(i + t);
 		float size = mix(15.0, 1.0, depth);

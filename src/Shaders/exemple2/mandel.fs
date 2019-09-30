@@ -45,7 +45,14 @@ void main(){
 	c *= screenSize;
 
 	//Add The Zoom 
-	c /= (Zoom + 1000)/10.0;
+	c /= 100;
+
+	//Add The Zoom 
+	//c /= (1000)/10.0;
+
+
+
+	c *= Zoom;
 
 	//Add the X and Y Offset
 	c += vec2(X, Y);

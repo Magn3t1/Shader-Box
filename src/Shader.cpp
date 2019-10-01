@@ -47,7 +47,7 @@ void Shader::load(const char* vertexPath, const char* fragmentPath, const char* 
 			geometryCode = gShaderStream.str();
 		}
 	}
-	catch (std::ifstream::failure e)
+	catch (std::ifstream::failure &e)
 	{
 		open_ = false;
 		std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
@@ -67,7 +67,7 @@ void Shader::load(const char* vertexPath, const char* fragmentPath, const char* 
 	glCompileShader(fragment);
 	checkCompileErrors(fragment, "FRAGMENT");
 	// if geometry shader is given, compile geometry shader
-	unsigned int geometry;
+	unsigned int geometry = 0;
 	if (geometryPath != nullptr)
 	{
 		const char * gShaderCode = geometryCode.c_str();

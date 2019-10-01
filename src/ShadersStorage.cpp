@@ -28,7 +28,7 @@ Shader const& ShadersStorage::getActualShader(){
 void ShadersStorage::moveForward(){
 
 	++actualIndex_;
-	if(actualIndex_ >= openedShaders_.size()){
+	if(actualIndex_ >= (int)openedShaders_.size()){
 		actualIndex_ = 0;
 	}
 

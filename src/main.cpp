@@ -1,5 +1,5 @@
 
-//Les includes openGL
+//OpegnGl includes
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -82,12 +82,12 @@ int main(){
 
 	GlobalVariable::mainShadersStoragePointer_ = &monStorage;
 
-	monStorage.addShader("Shaders/Noise/default.vs", "Shaders/Noise/test.fs");
-	monStorage.addShader("Shaders/CircleShine/default.vs", "Shaders/CircleShine/test.fs");
-	monStorage.addShader("Shaders/Brain/default.vs", "Shaders/Brain/test.fs");
-	monStorage.addShader("Shaders/Truchet/default.vs", "Shaders/Truchet/test.fs");
-	monStorage.addShader("Shaders/exemple/default.vs", "Shaders/exemple/mandel.fs");
-	monStorage.addShader("Shaders/exemple2/default.vs", "Shaders/exemple2/mandel.fs");
+	monStorage.addShader("Shaders/default.vs", "Shaders/Noise/noise.fs");
+	monStorage.addShader("Shaders/default.vs", "Shaders/CircleShine/circleShine.fs");
+	monStorage.addShader("Shaders/default.vs", "Shaders/Brain/brain.fs");
+	monStorage.addShader("Shaders/default.vs", "Shaders/Truchet/truchet.fs");
+	monStorage.addShader("Shaders/default.vs", "Shaders/Mandelbrot/mandelbrot.fs");
+	monStorage.addShader("Shaders/default.vs", "Shaders/Raymarching/raymarching.fs");
 
 
 	float time;
@@ -115,9 +115,22 @@ int main(){
 		actualShader.setInt("mode", GlobalVariable::mode_);
 		actualShader.setFloat("X", GlobalVariable::X_);
 		actualShader.setFloat("Y", GlobalVariable::Y_);
+		actualShader.setFloat("Z", GlobalVariable::Z_);
 		actualShader.setFloat("Zoom", GlobalVariable::zoom_);
 		actualShader.setVec2("screenSize", glm::vec2(GlobalVariable::windowWidth_, GlobalVariable::windowHeight_));
 		actualShader.setFloat("xRatio", (float)GlobalVariable::windowWidth_/(float)GlobalVariable::windowHeight_);
+
+		/*MORE GENERIC*/
+		if(GlobalVariable::launch_ == true){
+        	GlobalVariable::launchValue_+=0.15;
+        }
+       
+        if(time - GlobalVariable::launchTime_ > 5){
+        	GlobalVariable::launchValue_ = 1.0;
+        	GlobalVariable::launch_ = false;
+        }
+
+	    actualShader.setFloat("launch", GlobalVariable::launchValue_);
 
 		monCarre.draw();
 
@@ -133,26 +146,46 @@ int main(){
 
 void processInput(GLFWwindow *window){
 	
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS){
         glfwSetWindowShouldClose(window, true);
+    }
 
-    if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    if(glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS){
+        GlobalVariable::Z_ += 0.1 * GlobalVariable::zoom_;
+    }
+
+    if(glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS){
+        GlobalVariable::Z_ -= 0.1 * GlobalVariable::zoom_;
+    }
+
+    if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
         GlobalVariable::Y_ += 0.1 * GlobalVariable::zoom_;
+    }
 
-    if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        GlobalVariable::Y_ -= 0.1 * GlobalVariable::zoom_;
+	if(glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
+		GlobalVariable::Y_ -= 0.1 * GlobalVariable::zoom_;
+	}
 
-  	if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+  	if(glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
         GlobalVariable::X_ += 0.1 * GlobalVariable::zoom_;
+  	}
 
-    if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    if(glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
         GlobalVariable::X_ -= 0.1 * GlobalVariable::zoom_;
+    }
 
-    if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+    if(glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS){
         GlobalVariable::zoom_ /= 1.05;
+    }
 
-    if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS)
+    if(glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS){
         GlobalVariable::zoom_ *= 1.05;
+    }
 
+    if(glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS){
+    	GlobalVariable::launchValue_ = 1.0;
+		GlobalVariable::launchTime_ = glfwGetTime();
+		GlobalVariable::launch_ = true;
+    }
 
 }

@@ -20,6 +20,4 @@ Compile the program with ```make```.
 
 Lauch the binary as ```./executable```.
 
-***Note that if you don't use the argmument thing to select a shader, it will automaticly select the ```Shaders/mandel.fs``` shader.***
-
 to complete...

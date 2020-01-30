@@ -139,7 +139,7 @@ vec4 getDist(vec3 point){
 	m.yz*=rotation(time*0.27);
 	m.xz*=rotation(time*0.24);
 	m.xy*=rotation(time*0.124);
-	vec4 menger = vec4(1,0.25,0.8,mengerSponge(m,3));
+	vec4 menger = vec4(0.85,1.0,0,mengerSponge(m,3));
 
 
 	//vec3 spherePoint2 = point - vec3(-1,1.25,launch-3);

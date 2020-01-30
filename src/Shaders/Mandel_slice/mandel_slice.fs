@@ -42,19 +42,12 @@ void main()
 	
 	position.x *= xRatio;
 
-	//position *= 5;
 
-	//Add The Zoom 
-	//position /= (1000)/10.0;
-
-
-
-	position.xy *= (Zoom);
-	//position.xy -= 3;
+	position.xy *= Zoom;
 	
 	//Add the X and Y Offset
 	position += vec3(X, Y,Z/100);
-position.xy*=rotate2d(time* 0.035);
+	position.xy*=rotate2d(time* 0.035);
 	vec3 z = position;
 
 	float dr = 1.0;
@@ -102,6 +95,6 @@ position.xy*=rotate2d(time* 0.035);
 				((cos(z.y - time*0.403)))/dr,
 				(((cos(z.x - time*0.0103))*cos(dr))/*-(cos(z.x - time*0.0103))/abs(tan(theta))*abs(tan(phi))*/),
 				1.0
-				) * rotation3d(vec3(1,1,1), time*0.2);
+				) * rotation3d(vec3(1,1,1), time*0.4);
 	}
 }

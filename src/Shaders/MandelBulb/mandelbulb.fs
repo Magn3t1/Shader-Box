@@ -137,30 +137,6 @@ float mandelBulb(vec3 position) {
 	//return vec2(iterations,dst*1);
 }
 
-float mengerSponge(vec3 p, int iteration){
-   float d = sdBox(p,vec3(2.0));
-
-   float s = 1.0;
-   for( int m=0; m<iteration; m++ )
-   {
-      vec3 a = mod( p*s, 2.0 )-1.0;
-      s *= 3.0;
-      vec3 r = abs(1.0 - 3.0*abs(a));
-
-
-
-      float da = max(r.x,r.y);
-      float db = max(r.y,r.z);
-      float dc = max(r.z,r.x);
-      float c = (min(da,min(db,dc))-1.0)/s;
-      
-
-
-      d = max(d,c);
-   }
-   return d;
-}
-
 vec4 getDist(vec3 point){
 	//floor
 	vec4 planeDist = vec4(0.855, 0.439, 0.839,point.y);
@@ -170,7 +146,7 @@ vec4 getDist(vec3 point){
 	m.yz*=rotation(time*0.27);
 	m.xz*=rotation(time*0.24);
 	m.xy*=rotation(time*0.124);
-	vec4 menger = vec4(1,0.25,0.8,mandelBulb(m));
+	vec4 menger = vec4(0.25,0.5,1,mandelBulb(m));
 
 
 	//vec3 spherePoint2 = point - vec3(-1,1.25,launch-3);

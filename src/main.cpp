@@ -82,6 +82,7 @@ int main(){
 
 	GlobalVariable::mainShadersStoragePointer_ = &monStorage;
 
+	monStorage.addShader("Shaders/default.vs", "Shaders/Mandel_slice/mandel_slice.fs");
 	monStorage.addShader("Shaders/default.vs", "Shaders/Noise/noise.fs");
 	monStorage.addShader("Shaders/default.vs", "Shaders/CircleShine/circleShine.fs");
 	monStorage.addShader("Shaders/default.vs", "Shaders/Brain/brain.fs");
@@ -89,7 +90,6 @@ int main(){
 	monStorage.addShader("Shaders/default.vs", "Shaders/Mandelbrot/mandelbrot.fs");
 	monStorage.addShader("Shaders/default.vs", "Shaders/MandelBulb/mandelbulb.fs");
 	monStorage.addShader("Shaders/default.vs", "Shaders/Menger/menger.fs");
-	monStorage.addShader("Shaders/default.vs", "Shaders/Mandel_slice/mandel_slice.fs");
 
 
 	float time;

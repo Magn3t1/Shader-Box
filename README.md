@@ -22,14 +22,19 @@ Lauch the binary as ```./executable```.
 
 ### Inputs:
 
+***Moving:***
 - *```Z```* Up
 - *```S```* Down
 - *```Q```* Left
 - *```D```* Right
-- *```E```* Zoom In
-- *```A```* Zoom Out
 - *```T```* Forward
 - *```G```* Backward
+
+***Zoom:***
+- *```E```* Zoom In
+- *```A```* Zoom Out
+
+***Browse:***
 - *```[1-9]```* Changing differents mode (Transforming: Mandelbrot into Julia, increase some variables...)
 
 

@@ -20,7 +20,7 @@ Compile the program with ```make```.
 
 Lauch the binary as ```./executable```.
 
-to complete...
+inputs to complete...
 
 ## Exemple of Execution
 
@@ -51,3 +51,7 @@ Here are some pictures that illustrate execution:
 ## Author
 
 * **Etienne PENAULT & Guillaume MAGNIADAS** - *4 fun*
+
+## Acknowledgments
+
+* **[The Art of Code](https://www.youtube.com/channel/UCcAlTqd9zID6aNX3TzwxJXg)** - *Knoledge of shader/exemples*

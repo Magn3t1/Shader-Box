@@ -20,7 +20,17 @@ Compile the program with ```make```.
 
 Lauch the binary as ```./executable```.
 
-inputs to complete...
+### Inputs:
+
+- *```Z```* Up
+- *```S```* Down
+- *```Q```* Left
+- *```D```* Right
+- *```E```* Zoom In
+- *```A```* Zoom Out
+- *```T```* Forward
+- *```G```* Backward
+- *```[1-9]```* Chnaging differents mode (Transforming: Mandelbrot into Julia, increase some variables...)
 
 ## Exemple of Execution
 
@@ -54,4 +64,4 @@ Here are some pictures that illustrate execution:
 
 ## Acknowledgments
 
-* **[The Art of Code](https://www.youtube.com/channel/UCcAlTqd9zID6aNX3TzwxJXg)** - *Knoledge of shader/exemples*
+* **[The Art of Code](https://www.youtube.com/channel/UCcAlTqd9zID6aNX3TzwxJXg)** - *Knowledge of shader/exemples*

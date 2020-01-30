@@ -34,11 +34,12 @@ Here are some pictures that illustrate execution:
 ![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/11.png)
 ![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/12.png)
 
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/6.png)
+
 ![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/4.png)
 ![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/13.png)
 ![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/5.png)
-
-![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/6.png)
 
 ![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/8.png)
 

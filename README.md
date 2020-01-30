@@ -36,9 +36,7 @@ Lauch the binary as ```./executable```.
 
 ***Browse:***
 - *```[1-9]```* Changing differents mode (Transforming: Mandelbrot into Julia, increase some variables...)
-
-
-- *```Up/Down arrows```* Browsing shaders
+- *```Up/Down arrows```* Changing shaders
 
 
 ## Exemple of Execution

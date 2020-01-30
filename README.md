@@ -10,7 +10,7 @@ We invite you to check code comments if you are interested in shaders conception
   
 ***Note that the project will not compile if you are missing one of these libraries.***
 
-## How to use - *Linux Project*
+## How to use - *Linux & MacOS Project*
 
 ### Compilation
 
@@ -21,3 +21,32 @@ Compile the program with ```make```.
 Lauch the binary as ```./executable```.
 
 to complete...
+
+## Exemple of Execution
+
+Here are some pictures that illustrate execution:
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/1.png)
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/2.png)
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/7.png)
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/11.png)
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/12.png)
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/4.png)
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/13.png)
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/5.png)
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/6.png)
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/8.png)
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/10.png)
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/3.png)
+
+![*1](https://github.com/Magn3t1/Shader-Box/blob/master/screen/9.png)
+
+## Author
+
+* **Etienne PENAULT & Guillaume MAGNIADAS** - *4 fun*

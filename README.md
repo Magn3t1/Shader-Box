@@ -30,7 +30,11 @@ Lauch the binary as ```./executable```.
 - *```A```* Zoom Out
 - *```T```* Forward
 - *```G```* Backward
-- *```[1-9]```* Chnaging differents mode (Transforming: Mandelbrot into Julia, increase some variables...)
+- *```[1-9]```* Changing differents mode (Transforming: Mandelbrot into Julia, increase some variables...)
+
+
+- *```Up/Down arrows```* Browsing shaders
+
 
 ## Exemple of Execution
 

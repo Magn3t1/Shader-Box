@@ -19,5 +19,5 @@
 .gitignore      export-ignore
 
 * linguist-vendored
-src/Shaders/*.fs linguist-vendored=false
+src/Shaders/Brain/*.fs linguist-vendored=false
 #src/glad.c linguist-vendored=false

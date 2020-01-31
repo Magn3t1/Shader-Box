@@ -7,6 +7,7 @@ We invite you to check code comments if you are interested in shaders conception
 
 - [GLFW](https://www.glfw.org/)
 - [OpenGL Mathematics (GLM)](https://glm.g-truc.net/0.9.9/index.html)
+- [GLAD](https://glad.dav1d.de/)
   
 ***Note that the project will not compile if you are missing one of these libraries.***
 

@@ -20,4 +20,5 @@
 
 * linguist-vendored
 src/Shaders/Brain/*.fs linguist-vendored=false
+*.cpp linguist-vendored=false
 #src/glad.c linguist-vendored=false
